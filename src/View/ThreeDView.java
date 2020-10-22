@@ -62,19 +62,19 @@ public class ThreeDView {
                     if(button.getText()== shape1){
                         BlocView blockView = new BlocView( sh );
                         VBox insert = new VBox(  );
-                        insert = blockView.blockInserts(shape1);
+                        insert = blockView.blockInserts(shape1, shapeHolder);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     } else if (button.getText()== shape2){
                         CylinderView cylinderView = new CylinderView( sh );
                         VBox insert = new VBox(  );
-                        insert = cylinderView.cylinderInsert(shape2);
+                        insert = cylinderView.cylinderInsert(shape2, shapeHolder);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     } else if (button.getText()== shape3){
                         SphereView sphereView = new SphereView( sh );
                         VBox insert = new VBox(  );
-                        insert = sphereView.sphereInserts(shape3);
+                        insert = sphereView.sphereInserts(shape3, shapeHolder);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     };

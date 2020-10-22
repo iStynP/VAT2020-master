@@ -18,7 +18,7 @@ import View.ThreeDView;
     // 1. Create the model that the application uses
     private ShapeHolder shapeHolder;
 
-    //    @Override
+        @Override
     public void init() throws Exception {
         this.shapeHolder = new ShapeHolder();
     }
@@ -65,13 +65,14 @@ import View.ThreeDView;
             layout.getSelectionModel().select( twoDShapes );
 
             // 6. Create the main View and add the high level layout
-            Scene scene = new Scene(layout, 400, 400);
+            Scene scene = new Scene(layout, 400, 450);
 
             window.setScene(scene);
             window.show();
 
             // 7. Show the application
             window.show();
+
         }
 
         public static void main (String[]args) {
@@ -80,6 +81,7 @@ import View.ThreeDView;
             } catch (Exception e) {
                 System.out.println( e.getMessage() );
             }
+
 
 
 //        Test Units

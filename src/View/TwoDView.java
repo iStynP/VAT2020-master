@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class TwoDView {
@@ -32,6 +33,7 @@ public class TwoDView {
 
         // 2D-Shapes elements
         VBox VtwoD = twoD( layout, shapeHolder );
+
 
         layout.setTop( label );
         layout.setLeft( VtwoD );
@@ -62,19 +64,19 @@ public class TwoDView {
                     if(button.getText()== shape1){
                         CircleView circleView = new CircleView( sh );
                         VBox insert = new VBox( );
-                        insert = circleView.circleInserts(shape1);
+                        insert = circleView.circleInserts(shape1, shapeHolder);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     } else if (button.getText()== shape2){
                         SquareView squareView = new SquareView( sh );
                         VBox insert = new VBox(  );
-                        insert = squareView.squareInserts(shape2);
+                        insert = squareView.squareInserts(shape2, shapeHolder);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     } else if (button.getText()== shape3){
                         TriangleView triangleView = new TriangleView( sh );
                         VBox insert = new VBox(  );
-                        insert = triangleView.triangleInserts(shape3);
+                        insert = triangleView.triangleInserts(shape3, shapeHolder);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     };
