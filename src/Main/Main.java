@@ -6,8 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
-import view.TwoDView;
-import view.ThreeDView;
+import View.TwoDView;
+import View.ThreeDView;
 
 /**
  * @author Rodney
@@ -61,10 +61,10 @@ import view.ThreeDView;
 
 
 
-            // 5. First show the input view
+            // 5. First show the input View
             layout.getSelectionModel().select( twoDShapes );
 
-            // 6. Create the main view and add the high level layout
+            // 6. Create the main View and add the high level layout
             Scene scene = new Scene(layout, 400, 400);
 
             window.setScene(scene);

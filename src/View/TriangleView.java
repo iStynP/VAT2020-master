@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import Domain.ShapeHolder;
 import javafx.geometry.Insets;

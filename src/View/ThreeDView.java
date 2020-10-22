@@ -1,15 +1,11 @@
-package view;
+package View;
 
 import Domain.ShapeHolder;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-
-import javax.swing.text.html.BlockView;
 
 public class ThreeDView {
 
