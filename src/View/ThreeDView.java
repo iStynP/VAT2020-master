@@ -1,6 +1,8 @@
 package View;
 
 import Domain.ShapeHolder;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -51,34 +53,34 @@ public class ThreeDView {
         RadioButton button2 = new RadioButton( shape3 );
         button2.setToggleGroup( group );
 
-//        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
-//                // Has selection.
-//                if (group.getSelectedToggle() != null) {
-//                    RadioButton button = (RadioButton) group.getSelectedToggle();
-//                    if(button.getText()== shape1){
-//                        BlocView blockView = new BlocView( sh );
-//                        VBox insert = new VBox(  );
-//                        insert = blockView.blockInserts();
-//                        bp.setCenter( insert );
-//                        insert.setSpacing( 5 );
-//                    } else if (button.getText()== shape2){
-//                        CylinderView cylinderView = new CylinderView( sh );
-//                        VBox insert = new VBox(  );
-//                        insert = cylinderView.cylinderInsert();
-//                        bp.setCenter( insert );
-//                        insert.setSpacing( 5 );
-//                    } else if (button.getText()== shape3){
-//                        SphereView sphereView = new SphereView( sh );
-//                        VBox insert = new VBox(  );
-//                        insert = sphereView.sphereInserts();
-//                        bp.setCenter( insert );
-//                        insert.setSpacing( 5 );
-//                    };
-//                }
-//            }
-//        });
+        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
+                // Has selection.
+                if (group.getSelectedToggle() != null) {
+                    RadioButton button = (RadioButton) group.getSelectedToggle();
+                    if(button.getText()== shape1){
+                        BlocView blockView = new BlocView( sh );
+                        VBox insert = new VBox(  );
+                        insert = blockView.blockInserts(shape1);
+                        bp.setCenter( insert );
+                        insert.setSpacing( 5 );
+                    } else if (button.getText()== shape2){
+                        CylinderView cylinderView = new CylinderView( sh );
+                        VBox insert = new VBox(  );
+                        insert = cylinderView.cylinderInsert(shape2);
+                        bp.setCenter( insert );
+                        insert.setSpacing( 5 );
+                    } else if (button.getText()== shape3){
+                        SphereView sphereView = new SphereView( sh );
+                        VBox insert = new VBox(  );
+                        insert = sphereView.sphereInserts(shape3);
+                        bp.setCenter( insert );
+                        insert.setSpacing( 5 );
+                    };
+                }
+            }
+        });
 
         twoD.getChildren().addAll( button, button1, button2 );
         twoD.setPadding( new Insets( 10, 10, 10, 10 ) );

@@ -41,7 +41,7 @@ public class TwoDView {
     }
 
     public VBox twoD(BorderPane bp, ShapeHolder sh) {
-        VBox twoD = new VBox(  );
+        VBox twoD = new VBox( );
 
         //Group RadioButtons
         ToggleGroup group = new ToggleGroup();
@@ -61,20 +61,20 @@ public class TwoDView {
                     RadioButton button = (RadioButton) group.getSelectedToggle();
                     if(button.getText()== shape1){
                         CircleView circleView = new CircleView( sh );
-                        VBox insert = new VBox(  );
-                        insert = circleView.circleInserts();
+                        VBox insert = new VBox( );
+                        insert = circleView.circleInserts(shape1);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     } else if (button.getText()== shape2){
                         SquareView squareView = new SquareView( sh );
                         VBox insert = new VBox(  );
-                        insert = squareView.squareInserts();
+                        insert = squareView.squareInserts(shape2);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     } else if (button.getText()== shape3){
                         TriangleView triangleView = new TriangleView( sh );
                         VBox insert = new VBox(  );
-                        insert = triangleView.triangleInserts();
+                        insert = triangleView.triangleInserts(shape3);
                         bp.setCenter( insert );
                         insert.setSpacing( 5 );
                     };
