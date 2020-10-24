@@ -26,7 +26,7 @@ public class ThreeDimensionalShape implements Shape{
     public String toString() {
         String strTotalSurface = ( new DecimalFormat("##.##").format(getTotalSurface()) );
         String strTotalVolume = ( new DecimalFormat("##.##").format(getVolume()) );
-        return "This " + name + " has a total surface of " + strTotalSurface + " cm2\n" +
-                "and a volume of " + strTotalVolume + " cm3";
+        return "This " + name + " has a total surface of " + strTotalSurface + " cm\u00B2\n" +
+                "and a volume of " + strTotalVolume + " cm\u00B3";
     }
 }
