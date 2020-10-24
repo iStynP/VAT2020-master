@@ -1,5 +1,7 @@
 package Domain;
 
+import java.text.DecimalFormat;
+
 /**
  * @author Rodney
  */
@@ -38,8 +40,10 @@ public class Square extends TwoDimensionalShape {
 
     @Override
     public String toString() {
-        return  "Length = " + this.length + " cm\n" +
-                "Width = " + this.width + " cm\n" +
+        String strLength = ( new DecimalFormat("##.##").format(this.length) );
+        String strWidth = ( new DecimalFormat("##.##").format(this.width) );
+        return  "Length = " + strLength + " cm\n" +
+                "Width = " + strWidth + " cm\n" +
                 super.toString();
     }
 }

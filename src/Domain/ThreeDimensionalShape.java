@@ -1,5 +1,7 @@
 package Domain;
 
+import java.text.DecimalFormat;
+
 public class ThreeDimensionalShape implements Shape{
     private double volume;
     private double totalSurface;
@@ -22,7 +24,9 @@ public class ThreeDimensionalShape implements Shape{
     }
 
     public String toString() {
-        return "This " + name + " has a total surface of " + getTotalSurface() + " cm2\n" +
-                "and a volume of " + getVolume() + " cm3";
+        String strTotalSurface = ( new DecimalFormat("##.##").format(getTotalSurface()) );
+        String strTotalVolume = ( new DecimalFormat("##.##").format(getVolume()) );
+        return "This " + name + " has a total surface of " + strTotalSurface + " cm2\n" +
+                "and a volume of " + strTotalVolume + " cm3";
     }
 }

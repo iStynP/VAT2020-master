@@ -1,6 +1,7 @@
 package Domain;
 
 import java.awt.*;
+import java.text.DecimalFormat;
 
 public class Circle extends TwoDimensionalShape {
     private double radius;
@@ -39,7 +40,9 @@ public class Circle extends TwoDimensionalShape {
 
     @Override
     public String toString() {
-        return "Radius = " + this.radius + "cm (Diameter = " + this.getDiameter() + " cm)\n" +
+        String strRadius = ( new DecimalFormat("##.##").format(this.radius) );
+        String strDiameter = ( new DecimalFormat("##.##").format(this.getDiameter()) );
+        return "Radius = " + strRadius + "cm \n" +
                 super.toString();
     }
 

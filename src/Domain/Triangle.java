@@ -1,5 +1,7 @@
 package Domain;
 
+import java.text.DecimalFormat;
+
 /**
  * @author Rodney
  */
@@ -46,9 +48,12 @@ public class Triangle extends TwoDimensionalShape {
 
     @Override
     public String toString() {
-        return  "Side A= " + sideA + " cm\n" +
-                "Side B= " + sideB + " cm\n" +
-                "Side C= " + sideC + " cm\n" +
+        String strSideA = ( new DecimalFormat("##.##").format(this.sideA) );
+        String strSideB = ( new DecimalFormat("##.##").format(this.sideB) );
+        String strSideC = ( new DecimalFormat("##.##").format(this.sideC) );
+        return  "Side A= " + strSideA + " cm\n" +
+                "Side B= " + strSideB + " cm\n" +
+                "Side C= " + strSideC + " cm\n" +
                 super.toString();
     }
 }
