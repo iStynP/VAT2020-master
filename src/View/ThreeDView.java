@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class ThreeDView {
@@ -30,11 +31,16 @@ public class ThreeDView {
         Label label = new Label( labelText );
         layout.setPadding( new Insets( 10 ) );
 
-        // 2D-Shapes elements
-        VBox VtwoD = twoD( layout, shapeHolder );
+        // 3D-Shapes elements
+        VBox VthreeD = twoD( layout, shapeHolder );
+
+        //Make SaveView
+        SaveView saveView = new SaveView();
 
         layout.setTop( label );
-        layout.setLeft( VtwoD );
+        layout.setLeft( VthreeD );
+        layout.setBottom( saveView.saveElement(shapeHolder) );
+
 
 
         return layout;
@@ -81,6 +87,7 @@ public class ThreeDView {
                 }
             }
         });
+
 
         twoD.getChildren().addAll( button, button1, button2 );
         twoD.setPadding( new Insets( 10, 10, 10, 10 ) );

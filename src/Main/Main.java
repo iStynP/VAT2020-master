@@ -124,8 +124,8 @@ import java.text.DecimalFormat;
             shapeHolder.print(  );
             shapeHolder.printAllShapes();
 
-            FileManager fileManager = new FileManager( shapeHolder );
-            fileManager.writeToFile( "newText" );
+//            FileManager fileManager = new FileManager( shapeHolder );
+//            fileManager.writeToFile( "newText" );
 
 //
 //            Sphere bol = new Sphere( 3.6 );

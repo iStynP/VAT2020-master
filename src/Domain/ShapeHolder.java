@@ -85,7 +85,7 @@ public class ShapeHolder {
             cylinder = "\ncylinders: " + counterCylinder;
         }
         return "This shape-list contains: " +
-                circle + square + triangle + sphere + block + cylinder;
+                circle + square + triangle + sphere + block + cylinder + "\n\n";
 
     }
 

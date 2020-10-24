@@ -31,12 +31,16 @@ public class TwoDView {
         Label label = new Label( labelText );
         layout.setPadding( new Insets( 10 ) );
 
+        //Make SaveView
+        SaveView saveView = new SaveView();
+
         // 2D-Shapes elements
         VBox VtwoD = twoD( layout, shapeHolder );
 
 
         layout.setTop( label );
         layout.setLeft( VtwoD );
+        layout.setBottom( saveView.saveElement(shapeHolder) );
 
 
         return layout;
