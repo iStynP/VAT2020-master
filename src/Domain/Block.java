@@ -53,9 +53,10 @@ public class Block extends ThreeDimensionalShape {
         String strLengt = ( new DecimalFormat("##.##").format(this.length) );
         String strWidth = ( new DecimalFormat("##.##").format(this.width) );
         String strHeight = ( new DecimalFormat("##.##").format(this.height) );
-        return "Length = " + strLengt + " cm\n" +
-                "Width = " + strWidth + " cm\n" +
-                "Height = " + strHeight + " cm\n" +
+        return
+//                "Length = " + strLengt + " cm\n" +
+//                "Width = " + strWidth + " cm\n" +
+//                "Height = " + strHeight + " cm\n" +
                 super.toString();
     }
 }

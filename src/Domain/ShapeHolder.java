@@ -1,5 +1,7 @@
 package Domain;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ShapeHolder {
@@ -15,7 +17,7 @@ public class ShapeHolder {
         }
     }
 
-    public int amountOfShapes(){
+    public int amountOfShapes() {
         return this.shapeList.size();
     }
 
@@ -85,8 +87,13 @@ public class ShapeHolder {
         return "This shape-list contains: " +
                 circle + square + triangle + sphere + block + cylinder;
 
+    }
 
-
-
+    public String printAllShapes() {
+        String allShapes = "";
+        for (int i = 0; i < shapeList.size(); i++) {
+            allShapes = allShapes + shapeList.get( i ).toString();
+        }
+        return allShapes;
     }
 }

@@ -42,8 +42,9 @@ public class Square extends TwoDimensionalShape {
     public String toString() {
         String strLength = ( new DecimalFormat("##.##").format(this.length) );
         String strWidth = ( new DecimalFormat("##.##").format(this.width) );
-        return  "Length = " + strLength + " cm\n" +
-                "Width = " + strWidth + " cm\n" +
+        return
+//                "Length = " + strLength + " cm\n" +
+//                "Width = " + strWidth + " cm\n" +
                 super.toString();
     }
 }

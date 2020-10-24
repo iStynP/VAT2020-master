@@ -42,7 +42,8 @@ public class Circle extends TwoDimensionalShape {
     public String toString() {
         String strRadius = ( new DecimalFormat("##.##").format(this.radius) );
         String strDiameter = ( new DecimalFormat("##.##").format(this.getDiameter()) );
-        return "Radius = " + strRadius + "cm \n" +
+        return
+//                "Radius = " + strRadius + "cm \n" +
                 super.toString();
     }
 

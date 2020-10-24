@@ -51,9 +51,10 @@ public class Triangle extends TwoDimensionalShape {
         String strSideA = ( new DecimalFormat("##.##").format(this.sideA) );
         String strSideB = ( new DecimalFormat("##.##").format(this.sideB) );
         String strSideC = ( new DecimalFormat("##.##").format(this.sideC) );
-        return  "Side A= " + strSideA + " cm\n" +
-                "Side B= " + strSideB + " cm\n" +
-                "Side C= " + strSideC + " cm\n" +
+        return
+//                "Side A= " + strSideA + " cm\n" +
+//                "Side B= " + strSideB + " cm\n" +
+//                "Side C= " + strSideC + " cm\n" +
                 super.toString();
     }
 }

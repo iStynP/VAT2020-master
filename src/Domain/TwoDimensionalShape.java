@@ -28,7 +28,7 @@ public class TwoDimensionalShape implements Shape {
         String strSurface = ( new DecimalFormat("##.##").format(getSurface()) );
         String strPerimeter = ( new DecimalFormat("##.##").format(getPerimeter()) );
         return "This " + name + " has a surface of " + strSurface + " cm\u00B2\n" +
-                "and a perimeter of " + strPerimeter + " cm";
+                "and a perimeter of " + strPerimeter + " cm\n\n";
     }
 
 }
