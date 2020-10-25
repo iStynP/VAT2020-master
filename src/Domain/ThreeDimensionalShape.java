@@ -23,6 +23,13 @@ public class ThreeDimensionalShape implements Shape{
         return this.name;
     }
 
+    @Override
+    public String getProperties() {
+        String strTotalSurface = ( new DecimalFormat("##.##").format(getTotalSurface()) );
+        String strTotalVolume = ( new DecimalFormat("##.##").format(getVolume()) );
+        return "(" + strTotalSurface + " cm\u00B2" + "/" + strTotalVolume + "cm\u00B3)";
+    }
+
     public String toString() {
         String strTotalSurface = ( new DecimalFormat("##.##").format(getTotalSurface()) );
         String strTotalVolume = ( new DecimalFormat("##.##").format(getVolume()) );

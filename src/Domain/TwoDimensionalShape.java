@@ -24,6 +24,13 @@ public class TwoDimensionalShape implements Shape {
         return this.name;
     }
 
+    @Override
+    public String getProperties() {
+        String strSurface = ( new DecimalFormat("##.##").format(getSurface()) );
+        String strPerimeter = ( new DecimalFormat("##.##").format(getPerimeter()) );
+        return "(" + strSurface + " cm\u00B2" + "/" + strPerimeter + "cm)";
+    }
+
     public String toString() {
         String strSurface = ( new DecimalFormat("##.##").format(getSurface()) );
         String strPerimeter = ( new DecimalFormat("##.##").format(getPerimeter()) );

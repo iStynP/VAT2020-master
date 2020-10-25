@@ -4,6 +4,7 @@ import Domain.ShapeHolder;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -37,10 +38,14 @@ public class TwoDView {
         // 2D-Shapes elements
         VBox VtwoD = twoD( layout, shapeHolder );
 
+        //Get ListViewElement
+        ListShapeView listShapeView = new ListShapeView( shapeHolder );
+        VBox listShapes = listShapeView.getView();
 
         layout.setTop( label );
         layout.setLeft( VtwoD );
         layout.setBottom( saveView.saveElement(shapeHolder) );
+        layout.setRight( listShapes );
 
 
         return layout;

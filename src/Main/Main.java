@@ -69,7 +69,7 @@ import java.text.DecimalFormat;
             layout.getSelectionModel().select( twoDShapes );
 
             // 6. Create the main View and add the high level layout
-            Scene scene = new Scene(layout, 400, 450);
+            Scene scene = new Scene(layout, 600, 500);
 
             window.setScene(scene);
             window.show();
@@ -93,36 +93,36 @@ import java.text.DecimalFormat;
 
 
 //        Test Units
-            ShapeHolder shapeHolder = new ShapeHolder();
-
-            Triangle triangle = new Triangle( 5, 5, 5 );
-            System.out.println( triangle );
-            System.out.println( " " );
-            Square square = new Square( 13, 35 );
-            Square vk = new Square( 13, 35 );
-            System.out.println( square );
-            System.out.println( " " );
-            Circle circle = new Circle( 3 );
-            System.out.println( circle );
-            Circle rondje = new Circle( 3 );
-            Circle rond = new Circle( 3 );
-            Circle round = new Circle( 3 );
-
+//            ShapeHolder shapeHolder = new ShapeHolder();
 //
+//            Triangle triangle = new Triangle( 5, 5, 5 );
+//            System.out.println( triangle );
+//            System.out.println( " " );
+//            Square square = new Square( 13, 35 );
+//            Square vk = new Square( 13, 35 );
+//            System.out.println( square );
+//            System.out.println( " " );
+//            Circle circle = new Circle( 3 );
+//            System.out.println( circle );
+//            Circle rondje = new Circle( 3 );
+//            Circle rond = new Circle( 3 );
+//            Circle round = new Circle( 3 );
 //
-            System.out.println( " " );
-            shapeHolder.addShape( triangle );
-            shapeHolder.addShape( square );
-            shapeHolder.addShape( circle );
-            shapeHolder.addShape( rondje );
-            shapeHolder.addShape( rond );
-            shapeHolder.addShape( round );
-            shapeHolder.addShape( vk );
-            String print = shapeHolder.print();
-            System.out.println(print);
-
-            shapeHolder.print(  );
-            shapeHolder.printAllShapes();
+////
+////
+//            System.out.println( " " );
+//            shapeHolder.addShape( triangle );
+//            shapeHolder.addShape( square );
+//            shapeHolder.addShape( circle );
+//            shapeHolder.addShape( rondje );
+//            shapeHolder.addShape( rond );
+//            shapeHolder.addShape( round );
+//            shapeHolder.addShape( vk );
+//            String print = shapeHolder.print();
+//            System.out.println(print);
+//
+//            shapeHolder.print(  );
+//            shapeHolder.printAllShapes();
 
 //            FileManager fileManager = new FileManager( shapeHolder );
 //            fileManager.writeToFile( "newText" );

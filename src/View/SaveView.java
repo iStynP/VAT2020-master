@@ -45,6 +45,7 @@ public class SaveView extends Node {
                     fileManager.writeToFile( fileName );
                     savedSuccessfully.setText( "Saved successfully!" );
                     saveField.clear();
+
                 } else {
                     saveField.clear();
                     savedSuccessfully.setText( "(Set filename)" );

@@ -3,6 +3,7 @@ package Domain;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ShapeHolder {
     private ArrayList<Shape> shapeList;
@@ -96,4 +97,20 @@ public class ShapeHolder {
         }
         return allShapes;
     }
+
+    public Collection<Shape> getAll() {
+        return shapeList;
+    }
+
+    public Collection<String> getAllNamesAndProperties(){
+        ArrayList names = new ArrayList(  );
+        for (int i = 0; i < shapeList.size(); i++) {
+            String name = shapeList.get( i ).getNameOfShape();
+            String properties = shapeList.get( i ).getProperties();
+            String nameAndProperties = name + "\n" + properties;
+            names.add( nameAndProperties );
+        }
+        return names;
+    }
+
 }
