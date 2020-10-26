@@ -1,6 +1,9 @@
 package BusinessLogic;
 
-import java.io.FileWriter;
+import Domain.Shape;
+import Domain.ShapeDB;
+
+import java.util.ArrayList;
 
 /**
  * @author Rodney
@@ -8,4 +11,13 @@ import java.io.FileWriter;
 public class ApplicationManager {
 
 
+    private ArrayList<Shape> shapes;
+    private ArrayList<String> shapeTypes;
+    private DataStorage.DAO DAO;
+
+    public ApplicationManager(ShapeDB ShapeDB){
+
+    }
 }
+
+

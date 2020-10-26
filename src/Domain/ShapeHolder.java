@@ -1,7 +1,5 @@
 package Domain;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ShapeHolder {
@@ -12,8 +10,8 @@ public class ShapeHolder {
     }
 
     public void addShape(Shape shape) {
-        if (!this.shapeList.contains( shape )) {
-            this.shapeList.add( shape );
+        if (!this.shapeList.contains(shape)) {
+            this.shapeList.add(shape);
         }
     }
 
@@ -22,7 +20,7 @@ public class ShapeHolder {
     }
 
     public void deleteShape(Shape shape) {
-        this.shapeList.remove( shape );
+        this.shapeList.remove(shape);
     }
 
     public String print() {
@@ -35,7 +33,7 @@ public class ShapeHolder {
         String form;
 
         for (int i = 0; i < this.shapeList.size(); i++) {
-            form = this.shapeList.get( i ).getNameOfShape();
+            form = this.shapeList.get(i).getNameOfShape();
 
             switch (form) {
                 case "circle":
@@ -92,8 +90,11 @@ public class ShapeHolder {
     public String printAllShapes() {
         String allShapes = "";
         for (int i = 0; i < shapeList.size(); i++) {
-            allShapes = allShapes + shapeList.get( i ).toString();
+            allShapes = allShapes + shapeList.get(i).toString();
         }
         return allShapes;
     }
+
+
 }
+

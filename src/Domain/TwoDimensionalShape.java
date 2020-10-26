@@ -1,7 +1,6 @@
 package Domain;
 
 import java.text.DecimalFormat;
-import java.util.Objects;
 
 public class TwoDimensionalShape implements Shape {
     private double surface;
@@ -23,6 +22,7 @@ public class TwoDimensionalShape implements Shape {
     public String getNameOfShape() {
         return this.name;
     }
+
 
     public String toString() {
         String strSurface = ( new DecimalFormat("##.##").format(getSurface()) );
