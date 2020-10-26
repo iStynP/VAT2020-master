@@ -37,9 +37,15 @@ public class ThreeDView {
         //Make SaveView
         SaveView saveView = new SaveView();
 
+        //Get ListViewElement
+        ListShapeView listShapeView = new ListShapeView( shapeHolder );
+        VBox listShapes = listShapeView.getView();
+
         layout.setTop( label );
         layout.setLeft( VthreeD );
         layout.setBottom( saveView.saveElement(shapeHolder) );
+        layout.setRight( listShapes );
+
 
 
 
