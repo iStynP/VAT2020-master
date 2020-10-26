@@ -80,7 +80,7 @@ class ShapeHolderTest {
         //Arrange
         //See beforeEach
         String expected = "This shape-list contains: " + "\ntriangles: 3" +
-                "\nspheres: 2";
+                "\nspheres: 2\n\n";
 
         //Act
         String actual = shapeHolder.print();

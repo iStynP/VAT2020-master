@@ -28,14 +28,22 @@ public class SquareView extends TwoDView {
         //Add button with function to create new Square
         Button addButton = new Button( "Add "+ shape + " to shapes" );
         addButton.setOnAction( e -> {
-            double Slength = Double.parseDouble(insertLength.getText());
-            double Swidth = Double.parseDouble(insertWidth.getText());
+            //Check for empty fields
+            if (((insertLength.getText().isEmpty()) || (insertWidth.getText().isEmpty()))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+                //check for only numeric inputs
+            } else if ((!insertLength.getText().matches("[0-9]+") || (!insertWidth.getText().matches("[0-9]+")))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+            } else{
+                double Slength = Double.parseDouble( insertLength.getText() );
+                double Swidth = Double.parseDouble( insertWidth.getText() );
 
-            //If a value == 0, no new shape will be created
-            if (Slength > 0 && Swidth > 0) {
-                Square square = new Square( Slength, Swidth );
-                shapeHolder.addShape( square );
-                inserted.setText( shape + " inserted: \n"+square.toString() );
+                //If a value == 0, no new shape will be created
+                if (Slength > 0 && Swidth > 0) {
+                    Square square = new Square( Slength, Swidth );
+                    shapeHolder.addShape( square );
+                    inserted.setText( shape + " inserted: \n" + square.toString() );
+                }
             }
             insertLength.clear();
             insertWidth.clear();

@@ -30,16 +30,24 @@ public class BlocView extends ThreeDView {
         //Add button with function to create new Block
         Button addButton = new Button( "Add " + shape + " to shapes" );
         addButton.setOnAction( e -> {
+            //Check for empty fields
+            if (((insertLength.getText().isEmpty()) || (insertHeight.getText().isEmpty()) || (insertWidth.getText().isEmpty()))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+                //check for only numeric inputs
+            } else if ((!insertLength.getText().matches("[0-9]+") || (!insertHeight.getText().matches("[0-9]+") || (!insertWidth.getText().matches("[0-9]+"))))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+            } else {
             double Blength = Double.parseDouble( insertLength.getText() );
             double Bwidth = Double.parseDouble( insertWidth.getText() );
             double Bheight = Double.parseDouble( insertHeight.getText() );
 
             //If a value == 0, no new shape will be created
-            if (Blength > 0 && Bwidth > 0 && Bheight > 0) {
+            if ((Blength > 0 && Bwidth > 0 && Bheight > 0)) {
                 Block block = new Block( Blength, Bwidth, Bheight );
                 shapeHolder.addShape( block );
                 inserted.setText( shape + " inserted: \n" + block.toString() );
 
+            }
             }
             insertLength.clear();
             insertWidth.clear();

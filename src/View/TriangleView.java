@@ -30,16 +30,24 @@ public class TriangleView extends TwoDView {
         //Add button with function to create new Triangle
         Button addButton = new Button( "Add "+ shape + " to shapes" );
         addButton.setOnAction( e -> {
+            //Check for empty fields
+            if (((insertSide1.getText().isEmpty()) || (insertSide2.getText().isEmpty()) || (insertSide3.getText().isEmpty()))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+                //check for only numeric inputs
+            } else if ((!insertSide1.getText().matches("[0-9]+") || (!insertSide2.getText().matches("[0-9]+") || (!insertSide3.getText().matches("[0-9]+"))))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+            } else {
+
             double Tside1 = Double.parseDouble(insertSide1.getText());
-            double Tside2 = Double.parseDouble(insertSide1.getText());
-            double Tside3 = Double.parseDouble(insertSide1.getText());
+            double Tside2 = Double.parseDouble(insertSide2.getText());
+            double Tside3 = Double.parseDouble(insertSide3.getText());
 
             //If value == 0, no new shape will be created
             if (Tside1 > 0 && Tside2 > 0 && Tside3 > 0) {
                 Triangle triangle = new Triangle( Tside1, Tside2, Tside3 );
                 shapeHolder.addShape( triangle );
-                inserted.setText( shape + " inserted: \n"+triangle.toString() );
-
+                inserted.setText( shape + " inserted: \n" + triangle.toString() );
+            }
             }
             insertSide1.clear();
             insertSide2.clear();

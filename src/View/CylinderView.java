@@ -28,17 +28,26 @@ public class CylinderView extends ThreeDView{
         //Add button with function to create new Cylinder
         Button addButton = new Button( "Add "+ shape + " to shapes" );
         addButton.setOnAction( e -> {
-            double CRadius = Double.parseDouble(insertRadius.getText());
-            double Cheight = Double.parseDouble(insertHeight.getText());
+            //Check for empty fields
+            if (((insertRadius.getText().isEmpty())||insertHeight.getText().isEmpty())) {
+                inserted.setText( "Not all fields are filled in correctly" );
+                //check for only numeric inputs
+            } else if ((!insertRadius.getText().matches("[0-9]+"))||!insertHeight.getText().matches("[0-9]+")) {
+                inserted.setText( "Not all fields are filled in correctly" );
+            } else {
+                double CRadius = Double.parseDouble( insertRadius.getText() );
+                double Cheight = Double.parseDouble( insertHeight.getText() );
 
-            //If a value == 0, no new shape will be created
-            if (CRadius > 0 && Cheight > 0) {
-                Cylinder cylinder = new Cylinder( CRadius, Cheight );
-                shapeHolder.addShape( cylinder );
-                inserted.setText( shape + " inserted: \n"+cylinder.toString() );
+                //If a value == 0, no new shape will be created
+                if (CRadius > 0 && Cheight > 0) {
+                    Cylinder cylinder = new Cylinder( CRadius, Cheight );
+                    shapeHolder.addShape( cylinder );
+                    inserted.setText( shape + " inserted: \n" + cylinder.toString() );
 
+                }
             }
             insertRadius.clear();
+            insertHeight.clear();
         } );
 
         HBox addButtonBox = new HBox(  );

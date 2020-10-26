@@ -12,6 +12,11 @@ public class ShapeHolder {
         this.shapeList = new ArrayList<>();
     }
 
+    public Shape getShape(int indexNr){
+        Shape shape = (Shape) shapeList.get( indexNr );
+        return shape;
+    }
+
     public void addShape(Shape shape) {
         if (!this.shapeList.contains( shape )) {
             this.shapeList.add( shape );

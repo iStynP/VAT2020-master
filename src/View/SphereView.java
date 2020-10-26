@@ -27,14 +27,22 @@ public class SphereView extends ThreeDView {
         //Add button with function to create new Circle
         Button addButton = new Button( "Add "+ shape + " to shapes" );
         addButton.setOnAction( e -> {
-            double SRadius = Double.parseDouble(insertRadius.getText());
+            //Check for empty fields
+            if (((insertRadius.getText().isEmpty()))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+                //check for only numeric inputs
+            } else if ((!insertRadius.getText().matches("[0-9]+"))) {
+                inserted.setText( "Not all fields are filled in correctly" );
+            } else {
+                double SRadius = Double.parseDouble( insertRadius.getText() );
 
-            //If value == 0, no new shape will be created
-            if (SRadius > 0) {
-                Sphere sphere = new Sphere( SRadius );
-                shapeHolder.addShape( sphere );
-                inserted.setText( shape + " inserted: \n"+sphere.toString() );
+                //If value == 0, no new shape will be created
+                if (SRadius > 0) {
+                    Sphere sphere = new Sphere( SRadius );
+                    shapeHolder.addShape( sphere );
+                    inserted.setText( shape + " inserted: \n" + sphere.toString() );
 
+                }
             }
             insertRadius.clear();
         } );
