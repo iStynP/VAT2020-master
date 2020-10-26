@@ -1,17 +1,13 @@
 package Main;
 
-import BusinessLogic.FileManager;
 import Domain.*;
+import View.ThreeDView;
+import View.TwoDView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
-import View.TwoDView;
-import View.ThreeDView;
-
-import java.io.FileWriter;
-import java.text.DecimalFormat;
 
 /**
  * @author Rodney
@@ -22,10 +18,15 @@ import java.text.DecimalFormat;
     // 1. Create the model that the application uses
     private ShapeHolder shapeHolder;
 
+
         @Override
     public void init() throws Exception {
         this.shapeHolder = new ShapeHolder();
+
     }
+
+
+
 
 
 
@@ -35,6 +36,7 @@ import java.text.DecimalFormat;
             // 2. Create the views ("subviews")
             TwoDView twoDView = new TwoDView(shapeHolder);
             ThreeDView threeDView = new ThreeDView(shapeHolder);
+
 
             // 3. Create the higher level layout
             TabPane layout = new TabPane(  );
@@ -59,6 +61,7 @@ import java.text.DecimalFormat;
             // 3.1. Create the menu for the general layout
             Tab twoDShapes = new Tab( "2D-Shapes", twoDView.getView() );
             Tab threeDShapes = new Tab( "3D-Shapes", threeDView.getView() );
+
 
             layout.getTabs().addAll( twoDShapes, threeDShapes );
 
