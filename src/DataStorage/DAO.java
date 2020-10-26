@@ -54,10 +54,10 @@ public class DAO extends DatabaseConnection {
     }
 
 
-    public List<ShapeDB> getAll() {
-        return useStatement("select * from shape", statement -> {
-            ResultSet resultSet = statement.executeQuery("select * shape");
-            List<ShapeDB> result = new ArrayList<>();
+    public ArrayList<ShapeDB> getAll() {
+        return useStatement("select * from 'shape'", statement -> {
+            ResultSet resultSet = statement.executeQuery("select * from 'shape'");
+            ArrayList<ShapeDB> result = new ArrayList<>();
 
             while (resultSet.next()) {
                 ShapeDB shapeDB = recordToEntity(resultSet);

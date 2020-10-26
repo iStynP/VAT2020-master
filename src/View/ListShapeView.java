@@ -35,6 +35,13 @@ public class ListShapeView {
             listViewNames.setItems( FXCollections.observableArrayList( shapeHolder.getAllNamesAndProperties() ) );
         } );
 
+        //Get objects from DB
+        Button shapesFromDB = new Button( "Shapes from DB" );
+        shapesFromDB.setOnAction( actionEvent -> {
+            shapeHolder.getFromDB();
+            listViewNames.setItems( FXCollections.observableArrayList( shapeHolder.getAllNamesAndProperties() ) );
+        } );
+
         Button deleteButton = new Button( "Delete Shape" );
         deleteButton.setOnAction( actionEvent -> {
             //get IndexNr from listView (deleteNr)
@@ -49,8 +56,8 @@ public class ListShapeView {
             listViewNames.setItems( FXCollections.observableArrayList( shapeHolder.getAllNamesAndProperties() ) );
         } );
 
-        refreshAndDeleteButtons.getChildren().addAll( refreshButton, deleteButton );
-        refreshAndDeleteButtons.setSpacing( 35 );
+        refreshAndDeleteButtons.getChildren().addAll( refreshButton, deleteButton, shapesFromDB );
+        refreshAndDeleteButtons.setSpacing( 5 );
 
         listViewLayout.getChildren().addAll( listViewNames, refreshAndDeleteButtons );
         listViewLayout.setPadding( new Insets( 10 ) );

@@ -1,12 +1,17 @@
 package Domain;
 
+import DataStorage.DAO;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class ShapeHolder {
     private ArrayList<Shape> shapeList;
+    private List<ShapeDB> shapeDBList;
+    private DAO dao;
 
     public ShapeHolder() {
         this.shapeList = new ArrayList<>();
@@ -117,5 +122,41 @@ public class ShapeHolder {
         }
         return names;
     }
+
+    public List<Shape> getFromDB() {
+        this.shapeDBList = this.dao.getAll();
+        for (int i = 0; i < this.shapeDBList.size(); i++) {
+            String form = this.shapeDBList.get( i ).getName();
+            switch (form) {
+                case "circle":
+                Circle circle = new Circle( shapeDBList.get(i).getRadius() );
+                this.shapeList.add( circle );
+                break;
+                case "square":
+                    Square square = new Square( shapeDBList.get(i).getLength(), shapeDBList.get( i ).getWidth() );
+                    this.shapeList.add( square );
+                    break;
+                case "triangle":
+                    Triangle triangle = new Triangle( shapeDBList.get(i).getHeight(), shapeDBList.get(i).getLength(), shapeDBList.get(i).getWidth() );
+                    this.shapeList.add( triangle );
+                    break;
+                case "sphere":
+                    Sphere sphere = new Sphere( shapeDBList.get(i).getRadius() );
+                    this.shapeList.add( sphere );
+                    break;
+                case "block":
+                    Block block = new Block( shapeDBList.get(i).getLength(), shapeDBList.get(i).getWidth(), shapeDBList.get(i).getHeight() );
+                    this.shapeList.add( block );
+                    break;
+                case "cylinder":
+                    Cylinder cylinder = new Cylinder( shapeDBList.get(i).getRadius(), shapeDBList.get(i).getHeight() );
+                    this.shapeList.add( cylinder );
+                    break;
+            }
+        }
+        return this.shapeList;
+    }
+
+
 
 }

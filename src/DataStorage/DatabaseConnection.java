@@ -1,6 +1,4 @@
 package DataStorage;
-
-
 import Domain.ShapeDB;
 
 import java.sql.*;
