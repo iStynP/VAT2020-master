@@ -23,6 +23,8 @@ public class ThreeDimensionalShape implements Shape{
         return this.name;
     }
 
+
+
     @Override
     public String getProperties() {
         String strTotalSurface = ( new DecimalFormat("##.##").format(getTotalSurface()) );

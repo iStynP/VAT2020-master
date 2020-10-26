@@ -1,25 +1,42 @@
 package Domain;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import DataStorage.DAO;
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class ShapeHolder {
+
     private ArrayList<Shape> shapeList;
+    private ArrayList<ShapeDB> shapeListFromDB;
+    private List<ShapeDB> shapeDBList;
+    private DAO dao;
 
     public ShapeHolder() {
         this.shapeList = new ArrayList<>();
+        this.shapeListFromDB = new ArrayList<>();
     }
 
-    public Shape getShape(int indexNr){
-        Shape shape = (Shape) shapeList.get( indexNr );
+    public Shape getShape(int indexNr) {
+        Shape shape = (Shape) shapeList.get(indexNr);
         return shape;
     }
 
+    public ShapeDB getShapeFromDB(int Id) {
+        ShapeDB shapeDB = shapeListFromDB.get(Id);
+        return shapeDB;
+    }
+
     public void addShape(Shape shape) {
-        if (!this.shapeList.contains( shape )) {
-            this.shapeList.add( shape );
+        if (!this.shapeList.contains(shape)) {
+            this.shapeList.add(shape);
+        }
+    }
+
+    public void addShapeToDB(ShapeDB shapeDB) {
+        if (!this.shapeListFromDB.contains(shapeDB)) {
+            this.shapeListFromDB.add(shapeDB);
         }
     }
 
@@ -27,8 +44,16 @@ public class ShapeHolder {
         return this.shapeList.size();
     }
 
+    public int amountOfShapesFromDB() {
+        return this.shapeListFromDB.size();
+    }
+
     public void deleteShape(Shape shape) {
-        this.shapeList.remove( shape );
+        this.shapeList.remove(shape);
+    }
+
+    public void deleteShapeFromDB(ShapeDB shapeDB) {
+        this.shapeListFromDB.remove(shapeDB);
     }
 
     public String print() {
@@ -41,7 +66,7 @@ public class ShapeHolder {
         String form;
 
         for (int i = 0; i < this.shapeList.size(); i++) {
-            form = this.shapeList.get( i ).getNameOfShape();
+            form = this.shapeList.get(i).getNameOfShape();
 
             switch (form) {
                 case "circle":
@@ -98,7 +123,7 @@ public class ShapeHolder {
     public String printAllShapes() {
         String allShapes = "";
         for (int i = 0; i < shapeList.size(); i++) {
-            allShapes = allShapes + shapeList.get( i ).toString();
+            allShapes = allShapes + shapeList.get(i).toString();
         }
         return allShapes;
     }
@@ -107,15 +132,55 @@ public class ShapeHolder {
         return shapeList;
     }
 
-    public Collection<String> getAllNamesAndProperties(){
-        ArrayList names = new ArrayList(  );
+    public Collection<ShapeDB> getAllFromDB() {
+        return shapeListFromDB;
+    }
+
+    public Collection<String> getAllNamesAndProperties() {
+        ArrayList names = new ArrayList();
         for (int i = 0; i < shapeList.size(); i++) {
-            String name = shapeList.get( i ).getNameOfShape();
-            String properties = shapeList.get( i ).getProperties();
+            String name = shapeList.get(i).getNameOfShape();
+            String properties = shapeList.get(i).getProperties();
             String nameAndProperties = name + "\n" + properties;
-            names.add( nameAndProperties );
+            names.add(nameAndProperties);
         }
         return names;
     }
 
+    public Collection<String> getAllNamesFromDB() {
+        ArrayList namesFromDB = new ArrayList();
+        for (int i = 0; i < shapeListFromDB.size(); i++) {
+            String name = shapeListFromDB.get(i).getNameOfShape();
+            String properties = shapeListFromDB.get(i).getName();
+            String nameFromDB = name + "\n" + properties;
+            namesFromDB.add(namesFromDB);
+        }
+        return namesFromDB;
+    }
+
+
+    public void setShapeList(ArrayList<Shape> shapeList) {
+        this.shapeList = shapeList;
+    }
+
+    public void setShapeListFromDB(ArrayList<ShapeDB> shapeListFromDB) {
+        this.shapeListFromDB = shapeListFromDB;
+    }
+
+    public List<ShapeDB> getFromDB() {
+
+        this.shapeDBList = this.dao.getAllFromDB();
+        for (int i = 0; i < this.shapeDBList.size(); i++) {
+            this.shapeDBList.get(i).getName();
+        }
+
+        return shapeListFromDB;
+    }
 }
+
+
+
+
+
+
+

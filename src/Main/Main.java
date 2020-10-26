@@ -72,7 +72,7 @@ import javafx.stage.Stage;
             layout.getSelectionModel().select( twoDShapes );
 
             // 6. Create the main View and add the high level layout
-            Scene scene = new Scene(layout, 600, 500);
+            Scene scene = new Scene(layout, 700, 500);
 
             window.setScene(scene);
             window.show();
