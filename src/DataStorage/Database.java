@@ -14,9 +14,9 @@ public class Database {
         this.shapeDBList = shapeDBList;
     }
 
-    private static String url = "jdbc:mariadb://localhost:3306/shape";
-    private static String user = "root";
-    private static String password = " ";
+    private static String url = "jdbc:mariadb://localhost:3306/vat2020";
+    private static String user = "dbuser";
+    private static String password = "dbuser";
 
 
     public void list() {

@@ -62,7 +62,7 @@ public class DAO extends DatabaseConnection {
             while (resultSet.next()) {
                 ShapeDB shapeDB = recordToEntity(resultSet);
                 result.add(shapeDB);
-               System.out.println(shapeDB);
+             //  System.out.println(shapeDB);
             }
 
 
