@@ -14,7 +14,7 @@ public class Database {
         this.shapeDBList = shapeDBList;
     }
 
-    private static String url = "jdbc:mariadb://localhost:3306/sport";
+    private static String url = "jdbc:mariadb://localhost:3306/shape";
     private static String user = "root";
     private static String password = " ";
 
@@ -24,9 +24,9 @@ public class Database {
             //First retrieve all the properties of the shapes
             //STEP 2: Register JDBC driver
             Class.forName ("org.mariadb.jdbc.Driver");
-            try (Connection connection = DriverManager.getConnection( "jdbc:mariadb://localhost:3306/vat2020", user, password )) {
+            try (Connection connection = DriverManager.getConnection( url, user, password )) {
                 try (Statement statement = connection.createStatement()) {
-                    ResultSet resultSet = statement.executeQuery( "select * from clubs" );
+                    ResultSet resultSet = statement.executeQuery( "select * from shape" );
 
                     while (resultSet.next()) {
                         String name = resultSet.getString( "name" );

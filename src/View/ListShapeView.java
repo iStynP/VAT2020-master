@@ -38,8 +38,8 @@ public class ListShapeView {
         //Get objects from DB
         Button shapesFromDB = new Button( "Shapes from DB" );
         shapesFromDB.setOnAction( actionEvent -> {
-//            shapeHolder.getFromDB();
-            listViewNames.setItems( FXCollections.observableArrayList( shapeHolder.getAllNamesAndProperties() ) );
+            shapeHolder.getFromDB();
+    //        listViewNames.setItems( FXCollections.observableArrayList( shapeHolder.getAllNamesAndProperties() ) );
         } );
 
         Button deleteButton = new Button( "Delete Shape" );

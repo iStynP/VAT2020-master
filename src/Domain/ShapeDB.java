@@ -12,7 +12,7 @@ public class ShapeDB {
     private String name;
     private double radius, length, width, height;
 
-    private final List<ShapeDB> shapesFromDB;
+    private  List<ShapeDB> shapesFromDB;
 
     public ShapeDB(List<ShapeDB> shapesFromDB){
         this.shapesFromDB = shapesFromDB;

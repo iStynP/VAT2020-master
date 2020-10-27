@@ -10,7 +10,8 @@ import java.sql.*;
 public abstract class DatabaseConnection {
 
     //Database settings
-    private static String url = "jdbc:mysql://localhost:3306/vat2020";
+
+    private static String url = "jdbc:mariadb://localhost:3306/vat2020";
     private static String user = "root";
     private static String password = "";
     private Connection connection;

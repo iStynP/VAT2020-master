@@ -5,7 +5,6 @@ import Domain.ShapeDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Rodney
@@ -26,7 +25,7 @@ public class DAO extends DatabaseConnection {
 
 
     public void save(ShapeDB shapeDB) {
-        useStatement("insert.txt into people value (?, ?)", statement -> {
+        useStatement("insert.txt into shape value (?, ?)", statement -> {
             statement.setInt(1, shapeDB.getId());
             statement.setString(2, shapeDB.getName());
             statement.setDouble(3, shapeDB.getRadius());
@@ -40,15 +39,16 @@ public class DAO extends DatabaseConnection {
 
 
     public ShapeDB search(int id) {
-        return useStatement("select id from shape where ssn = ?", statement -> {
+        return useStatement("select id from shape where id = ?", statement -> {
             statement.setInt(1, id);
 
-            ResultSet resultSet = statement.executeQuery();
+            try (ResultSet resultSet = statement.executeQuery("select id from shape where id = id")) {
 
-            if (resultSet.next()) {
-                return recordToEntity(resultSet);
-            } else {
-                return null;
+                if (resultSet.next()) {
+                    return recordToEntity(resultSet);
+                } else {
+                    return null;
+                }
             }
         });
     }
@@ -56,13 +56,15 @@ public class DAO extends DatabaseConnection {
 
     public ArrayList<ShapeDB> getAll() {
         return useStatement("select * from 'shape'", statement -> {
-            ResultSet resultSet = statement.executeQuery("select * from 'shape'");
+            ResultSet resultSet = statement.executeQuery("select * from shape");
             ArrayList<ShapeDB> result = new ArrayList<>();
 
             while (resultSet.next()) {
                 ShapeDB shapeDB = recordToEntity(resultSet);
                 result.add(shapeDB);
+               System.out.println(shapeDB);
             }
+
 
             return result;
         });
