@@ -1,6 +1,7 @@
 package Main;
 
 import DataStorage.DAO;
+import DataStorage.Database;
 import DataStorage.DatabaseConnection;
 import Domain.*;
 import View.ThreeDView;
@@ -59,6 +60,10 @@ import java.util.ArrayList;
 
             // 7. Show the application
             window.show();
+
+            ArrayList<Shape> listFromDB = null;
+            Database db = new Database(listFromDB);
+            db.list();
 
 
         }

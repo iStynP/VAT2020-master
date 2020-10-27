@@ -26,7 +26,7 @@ public class DAO extends DatabaseConnection {
 
 
     public void save(ShapeDB shapeDB) {
-        useStatement("insert into people value (?, ?)", statement -> {
+        useStatement("insert.txt into people value (?, ?)", statement -> {
             statement.setInt(1, shapeDB.getId());
             statement.setString(2, shapeDB.getName());
             statement.setDouble(3, shapeDB.getRadius());

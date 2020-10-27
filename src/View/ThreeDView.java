@@ -3,6 +3,7 @@ package View;
 import Domain.ShapeHolder;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -34,8 +35,23 @@ public class ThreeDView {
         // 3D-Shapes elements
         VBox VthreeD = twoD( layout, shapeHolder );
 
+        //Make separator
+        Separator separator = new Separator();
+        separator.setMinWidth( 300 );
+        separator.setHalignment( HPos.CENTER );
+
         //Make SaveView
         SaveView saveView = new SaveView();
+        //Make LoadView
+        LoadView loadview = new LoadView();
+        //Put them in Hbox
+        HBox saveAndLoad = new HBox(  );
+        //Add Loadview to Hbox
+        saveAndLoad.getChildren().addAll( saveView.saveElement(shapeHolder), loadview.loadFile( shapeHolder ) );
+
+        VBox sepSaveAndLoad = new VBox(  );
+        sepSaveAndLoad.setPadding( new Insets( 10 ) );
+        sepSaveAndLoad.getChildren().addAll( separator, saveAndLoad );
 
         //Get ListViewElement
         ListShapeView listShapeView = new ListShapeView( shapeHolder );
@@ -43,7 +59,7 @@ public class ThreeDView {
 
         layout.setTop( label );
         layout.setLeft( VthreeD );
-        layout.setBottom( saveView.saveElement(shapeHolder) );
+        layout.setBottom( sepSaveAndLoad );
         layout.setRight( listShapes );
 
 

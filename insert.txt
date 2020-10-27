@@ -1,0 +1,8 @@
+block, 5,6,7
+block, 4,6,7
+circle, 7
+circle, 9
+sphere, 8
+square, 4,6
+square, 4,8
+

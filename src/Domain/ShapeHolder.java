@@ -5,13 +5,14 @@ import DataStorage.DAO;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 public class ShapeHolder {
     private ArrayList<Shape> shapeList;
-    private List<ShapeDB> shapeDBList;
-    private DAO dao;
+//    private List<ShapeDB> shapeDBList;
+//    private DAO dao;
 
     public ShapeHolder() {
         this.shapeList = new ArrayList<>();
@@ -123,39 +124,77 @@ public class ShapeHolder {
         return names;
     }
 
-    public List<Shape> getFromDB() {
-        this.shapeDBList = this.dao.getAll();
-        for (int i = 0; i < this.shapeDBList.size(); i++) {
-            String form = this.shapeDBList.get( i ).getName();
-            switch (form) {
-                case "circle":
-                Circle circle = new Circle( shapeDBList.get(i).getRadius() );
+    public void addToListFromFile(String filestring) {
+        String[] parts = filestring.split( "," );
+        String shape = parts[0];
+
+        //Set rest of Strings to double
+        ArrayList<Double> props = new ArrayList<>(  );
+        for (int i = 0; i < parts.length-1; i++) {
+            props.add( Double.parseDouble( parts[i+1] ) );
+        }
+
+        switch (shape) {
+            case "circle":
+                Circle circle = new Circle( props.get( 0 ) );
                 this.shapeList.add( circle );
                 break;
-                case "square":
-                    Square square = new Square( shapeDBList.get(i).getLength(), shapeDBList.get( i ).getWidth() );
-                    this.shapeList.add( square );
-                    break;
-                case "triangle":
-                    Triangle triangle = new Triangle( shapeDBList.get(i).getHeight(), shapeDBList.get(i).getLength(), shapeDBList.get(i).getWidth() );
-                    this.shapeList.add( triangle );
-                    break;
-                case "sphere":
-                    Sphere sphere = new Sphere( shapeDBList.get(i).getRadius() );
-                    this.shapeList.add( sphere );
-                    break;
-                case "block":
-                    Block block = new Block( shapeDBList.get(i).getLength(), shapeDBList.get(i).getWidth(), shapeDBList.get(i).getHeight() );
-                    this.shapeList.add( block );
-                    break;
-                case "cylinder":
-                    Cylinder cylinder = new Cylinder( shapeDBList.get(i).getRadius(), shapeDBList.get(i).getHeight() );
-                    this.shapeList.add( cylinder );
-                    break;
-            }
+            case "square":
+                Square square = new Square( props.get( 0 ), props.get( 1 ));
+                this.shapeList.add( square );
+                break;
+            case "triangle":
+                Triangle triangle = new Triangle( props.get( 0 ), props.get( 1 ), props.get( 2 ) );
+                this.shapeList.add( triangle );
+                break;
+            case "sphere":
+                Sphere sphere = new Sphere( props.get( 0 ));
+                this.shapeList.add( sphere );
+                break;
+            case "block":
+                Block block = new Block( props.get( 0 ), props.get( 1 ), props.get( 2 ));
+                this.shapeList.add( block );
+                break;
+            case "cylinder":
+                Cylinder cylinder = new Cylinder( props.get( 0 ), props.get( 1 ) );
+                this.shapeList.add( cylinder );
+                break;
         }
-        return this.shapeList;
     }
+
+//    public List<Shape> getFromDB() {
+//        this.shapeDBList = this.dao.getAll();
+//        for (int i = 0; i < this.shapeDBList.size(); i++) {
+//            String form = this.shapeDBList.get( i ).getName();
+//            switch (form) {
+//                case "circle":
+//                Circle circle = new Circle( shapeDBList.get(i).getRadius() );
+//                this.shapeList.add( circle );
+//                break;
+//                case "square":
+//                    Square square = new Square( shapeDBList.get(i).getLength(), shapeDBList.get( i ).getWidth() );
+//                    this.shapeList.add( square );
+//                    break;
+//                case "triangle":
+//                    Triangle triangle = new Triangle( shapeDBList.get(i).getHeight(), shapeDBList.get(i).getLength(), shapeDBList.get(i).getWidth() );
+//                    this.shapeList.add( triangle );
+//                    break;
+//                case "sphere":
+//                    Sphere sphere = new Sphere( shapeDBList.get(i).getRadius() );
+//                    this.shapeList.add( sphere );
+//                    break;
+//                case "block":
+//                    Block block = new Block( shapeDBList.get(i).getLength(), shapeDBList.get(i).getWidth(), shapeDBList.get(i).getHeight() );
+//                    this.shapeList.add( block );
+//                    break;
+//                case "cylinder":
+//                    Cylinder cylinder = new Cylinder( shapeDBList.get(i).getRadius(), shapeDBList.get(i).getHeight() );
+//                    this.shapeList.add( cylinder );
+//                    break;
+//            }
+//        }
+//        return this.shapeList;
+//    }
 
 
 

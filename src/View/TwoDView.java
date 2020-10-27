@@ -3,6 +3,7 @@ package View;
 import Domain.ShapeHolder;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -32,8 +33,23 @@ public class TwoDView {
         Label label = new Label( labelText );
         layout.setPadding( new Insets( 10 ) );
 
+        //Make separator
+        Separator separator = new Separator();
+        separator.setMinWidth( 300 );
+        separator.setHalignment( HPos.CENTER );
+
         //Make SaveView
         SaveView saveView = new SaveView();
+        //Make LoadView
+        LoadView loadview = new LoadView();
+        //Put them in Hbox
+        HBox saveAndLoad = new HBox(  );
+        //Add Loadview to Hbox
+        saveAndLoad.getChildren().addAll( saveView.saveElement(shapeHolder), loadview.loadFile( shapeHolder ) );
+
+        VBox sepSaveAndLoad = new VBox(  );
+        sepSaveAndLoad.setPadding( new Insets( 10 ) );
+        sepSaveAndLoad.getChildren().addAll( separator, saveAndLoad );
 
         // 2D-Shapes elements
         VBox VtwoD = twoD( layout, shapeHolder );
@@ -44,7 +60,7 @@ public class TwoDView {
 
         layout.setTop( label );
         layout.setLeft( VtwoD );
-        layout.setBottom( saveView.saveElement(shapeHolder) );
+        layout.setBottom( sepSaveAndLoad );
         layout.setRight( listShapes );
 
 

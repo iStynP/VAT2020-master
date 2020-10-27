@@ -20,18 +20,16 @@ public class SaveView extends Node {
     public VBox saveElement(ShapeHolder shapeHolder) {
         // Hbox in Vbox: Save to filename
         VBox vBox = new VBox();
-        //Horizontal separator
-        Separator separator = new Separator();
-        separator.setMinWidth( 300 );
-        separator.setHalignment( HPos.CENTER );
-        Label labelSave = new Label( "Save Shape-list here" );
-        vBox.setPadding( new Insets( 0, 15, 10, 15 ) );
+
+        Label labelSave = new Label( "Save Shape-list to file here" );
+        vBox.setPadding( new Insets( 5, 5, 5, 5 ) );
         vBox.setSpacing( 5 );
+        vBox.setMinWidth( 275 );
 
         HBox saveBox = new HBox();
         Label saveLabel = new Label( "Enter filename:" );
         saveBox.setSpacing( 10 );
-        saveBox.setPadding( new Insets( 10, 15, 10, 15 ) );
+        saveBox.setPadding( new Insets( 5, 5, 5, 5 ) );
         TextField saveField = new TextField();
         Label savedSuccessfully = new Label( "" );
 
@@ -56,8 +54,8 @@ public class SaveView extends Node {
             }
         } );
 
-        saveBox.getChildren().addAll( saveLabel, saveField, saveButton );
-        vBox.getChildren().addAll( separator, labelSave, saveBox, savedSuccessfully );
+        saveBox.getChildren().addAll(  saveField, saveButton );
+        vBox.getChildren().addAll( labelSave, saveLabel, saveBox, savedSuccessfully );
         return vBox;
     }
 }

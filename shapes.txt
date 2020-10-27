@@ -1,0 +1,10 @@
+This shape-list contains: 
+circles: 1
+squares: 1
+
+This circle has a surface of 78,54 cm²
+and a perimeter of 31,42 cm
+
+This square has a surface of 72 cm²
+and a perimeter of 34 cm
+
