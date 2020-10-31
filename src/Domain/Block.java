@@ -1,6 +1,7 @@
 package Domain;
 
 import java.text.DecimalFormat;
+import java.io.Serializable;
 
 /**
  * @author Rodney

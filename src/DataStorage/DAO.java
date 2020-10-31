@@ -5,6 +5,7 @@ import Domain.ShapeDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Rodney
@@ -42,13 +43,12 @@ public class DAO extends DatabaseConnection {
         return useStatement("select id from shape where id = ?", statement -> {
             statement.setInt(1, id);
 
-            try (ResultSet resultSet = statement.executeQuery("select id from shape where id = id")) {
+            ResultSet resultSet = statement.executeQuery("select id from shape where id = id");
 
-                if (resultSet.next()) {
-                    return recordToEntity(resultSet);
-                } else {
-                    return null;
-                }
+            if (resultSet.next()) {
+                return recordToEntity(resultSet);
+            } else {
+                return null;
             }
         });
     }
@@ -62,9 +62,7 @@ public class DAO extends DatabaseConnection {
             while (resultSet.next()) {
                 ShapeDB shapeDB = recordToEntity(resultSet);
                 result.add(shapeDB);
-             //  System.out.println(shapeDB);
             }
-
 
             return result;
         });

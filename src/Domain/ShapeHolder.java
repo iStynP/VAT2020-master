@@ -194,5 +194,15 @@ public class ShapeHolder {
         return this.shapeList;
     }
 
+    public void addFromSerializedList(ArrayList<Shape> shapeArrayList) {
+        for (int i = 0; i < shapeArrayList.size(); i++) {
+            this.shapeList.add( shapeArrayList.get( i ));
 
-}
+        }
+    }
+
+    public void replaceFromSerialized(ArrayList<Shape> shapeArrayList) {
+        this.shapeList = shapeArrayList;
+        }
+    }
+

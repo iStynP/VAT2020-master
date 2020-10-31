@@ -1,7 +1,7 @@
 package Main;
 
 import DataStorage.DAO;
-import DataStorage.Database;
+//import DataStorage.Database;
 import DataStorage.DatabaseConnection;
 import Domain.*;
 import View.ThreeDView;
@@ -53,7 +53,7 @@ import java.util.ArrayList;
             layout.getSelectionModel().select( twoDShapes );
 
             // 6. Create the main View and add the high level layout
-            Scene scene = new Scene(layout, 600, 500);
+            Scene scene = new Scene(layout, 600, 600);
 
             window.setScene(scene);
             window.show();
@@ -61,9 +61,9 @@ import java.util.ArrayList;
             // 7. Show the application
             window.show();
 
-            ArrayList<Shape> listFromDB = null;
-            Database db = new Database(listFromDB);
-            db.list();
+//            ArrayList<Shape> listFromDB = null;
+//            Database db = new Database(listFromDB);
+//            db.list();
 
 
         }

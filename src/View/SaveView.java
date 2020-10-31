@@ -32,30 +32,68 @@ public class SaveView extends Node {
         saveBox.setPadding( new Insets( 5, 5, 5, 5 ) );
         TextField saveField = new TextField();
         Label savedSuccessfully = new Label( "" );
+        Label saveToFile = new Label( "" );
+        HBox toTextorNo = new HBox(  );
+        toTextorNo.setPadding( new Insets( 5, 5, 5, 5 ) );
+        toTextorNo.setSpacing( 5 );
+        Button saveToText = new Button( "Save to .txt" );
+        Button noThanks = new Button( "No thanks" );
+        toTextorNo.getChildren().addAll( saveToText, noThanks );
+        toTextorNo.setVisible( false );
 
 //Savebutton function, save file as entered filename via Filemanager
-        Button saveButton = new Button( "Save" );
+        Button saveButton = new Button( "Save to file" );
         saveButton.setOnAction( actionEvent -> {
             FileManager fileManager = new FileManager( shapeHolder );
-            try {
-                String fileName = saveField.getText();
-                if (!fileName.isEmpty()) {
-                    fileManager.writeToFile( fileName );
-                    savedSuccessfully.setText( "Saved successfully!" );
-                    saveField.clear();
+            if (shapeHolder.amountOfShapes() < 1) {
+savedSuccessfully.setText( "(Shapelist is Empty)" );
+            } else {
 
-                } else {
+                try {
+                    String fileName = saveField.getText();
+                    if (!fileName.isEmpty()) {
+                        fileManager.serialization( fileName );
+                        saveButton.setVisible( false );
+                        savedSuccessfully.setText( "Saved successfully to file!" );
+                        saveToFile.setText( "Would you also like to save the Shapelist to a textfile?" );
+                        saveToFile.setVisible( true );
+                        toTextorNo.setVisible( true );
+
+                        // Does the user want to print the Shape-list to a text-file?
+                        // Also save to text button-function
+                        saveToText.setOnAction( actionEvent1 -> {
+                            fileManager.writeToFile( fileName );
+                            saveToFile.setVisible( false );
+                            saveButton.setVisible( true );
+                            saveToText.setVisible( false );
+                            toTextorNo.setVisible( false );
+                            saveField.clear();
+                        } );
+                        // NoThanks button-function
+                        noThanks.setOnAction( actionEvent2 -> {
+                            saveToFile.setVisible( false );
+                            saveButton.setVisible( true );
+                            saveToText.setVisible( false );
+                            toTextorNo.setVisible( false );
+                            saveField.clear();
+                        } );
+
+
+                        saveToText.setVisible( true );
+
+                    } else {
+                        saveField.clear();
+                        savedSuccessfully.setText( "(Set filename)" );
+                    }
+                } catch (Exception e) {
                     saveField.clear();
-                    savedSuccessfully.setText( "(Set filename)" );
+                    savedSuccessfully.setText( e.getMessage() );
                 }
-            } catch (Exception e) {
-                saveField.clear();
-                savedSuccessfully.setText( e.getMessage() );
             }
         } );
 
         saveBox.getChildren().addAll(  saveField, saveButton );
-        vBox.getChildren().addAll( labelSave, saveLabel, saveBox, savedSuccessfully );
+        vBox.getChildren().addAll( labelSave, saveLabel, saveBox, savedSuccessfully, saveToFile, toTextorNo );
         return vBox;
     }
 }
