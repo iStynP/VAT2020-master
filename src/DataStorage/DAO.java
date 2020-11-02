@@ -1,14 +1,10 @@
 package DataStorage;
 
-import Domain.Shape;
 import Domain.ShapeDB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Rodney
@@ -99,10 +95,18 @@ public class DAO extends DatabaseConnection {
 
 
 
-    public void deleteAll() {
-        throw new UnsupportedOperationException();
-    }
+    public ResultSet deleteAll() {
+        try {
+            return useStatement( "delete * from 'shape'", statement -> {
+                ResultSet resultSet = statement.executeQuery( "delete from shape" );
 
+                return resultSet;
+            } );
+        } catch (Exception e) {
+            System.out.println( e.getMessage() );
+        }
+        return null;
+    }
 }
 
 

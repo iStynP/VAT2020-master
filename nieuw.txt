@@ -1,0 +1,10 @@
+This shape-list contains: 
+circles: 1
+blocks: 1
+
+This circle has a surface of 78,54 cm²
+and a perimeter of 31,42 cm
+
+This block has a total surface of 148 cm²
+and a volume of 120 cm³
+

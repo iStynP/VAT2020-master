@@ -1,21 +1,14 @@
 package Main;
 
-import DataStorage.DAO;
 //import DataStorage.Database;
-import DataStorage.DatabaseConnection;
 import Domain.*;
 import View.ThreeDView;
 import View.TwoDView;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+        import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * @author Rodney & Stijn
@@ -64,7 +57,6 @@ import java.util.ArrayList;
 //            //AddUniqueID!!!!
 //            Block block = new Block( 4,5, 6 );
 //            System.out.println(block.getUniqueId());
-
 
 
 
