@@ -57,4 +57,19 @@ public class Triangle extends TwoDimensionalShape {
 //                "Side C= " + strSideC + " cm\n" +
                 super.toString();
     }
+
+    @Override
+    public double getLength() {
+        return this.sideA;
+    }
+
+    @Override
+    public double getWidth() {
+        return this.sideB;
+    }
+
+    @Override
+    public double getHeight() {
+        return this.sideC;
+    }
 }

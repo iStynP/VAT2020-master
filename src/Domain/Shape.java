@@ -1,7 +1,4 @@
 package Domain;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 
@@ -10,9 +7,17 @@ public interface Shape extends Serializable {
 
     String getProperties();
 
+    double getRadius();
+    double getLength();
+    double getWidth();
+    double getHeight();
+
+
     void serialization(String filename);
 
     void deSerialization(String filename);
+
+//    String getUniqueId();
     }
 
 

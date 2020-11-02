@@ -2,7 +2,6 @@ package Domain;
 
 import BusinessLogic.FileManager;
 
-import java.io.*;
 import java.text.DecimalFormat;
 
 public class ThreeDimensionalShape implements Shape{
@@ -11,9 +10,11 @@ public class ThreeDimensionalShape implements Shape{
     private String name;
     private ShapeHolder shapeHolder;
     private FileManager fileManager;
+//    private String uniqueId;
 
     public ThreeDimensionalShape(String name) {
         this.name = name;
+//        this.uniqueId = generateUniqueId();
     }
 
     public double getVolume() {
@@ -36,6 +37,26 @@ public class ThreeDimensionalShape implements Shape{
     }
 
     @Override
+    public double getRadius() {
+        return 0;
+    }
+
+    @Override
+    public double getLength() {
+        return 0;
+    }
+
+    @Override
+    public double getWidth() {
+        return 0;
+    }
+
+    @Override
+    public double getHeight() {
+        return 0;
+    }
+
+    @Override
     public void serialization(String filename) {
         // Serialization
         fileManager.serialization( filename );
@@ -47,6 +68,15 @@ public class ThreeDimensionalShape implements Shape{
         fileManager.deSerialization( filename );
 
     }
+
+//    public String getUniqueId() {
+//        return this.uniqueId;
+//    }
+//
+//    public String generateUniqueId() {
+//        UniqueID unique = new UniqueID();
+//        return unique.getUniqueId();
+//    }
 
 
     public String toString() {

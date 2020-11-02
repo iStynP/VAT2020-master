@@ -60,4 +60,19 @@ public class Block extends ThreeDimensionalShape {
 //                "Height = " + strHeight + " cm\n" +
                 super.toString();
     }
+
+    @Override
+    public double getLength() {
+        return this.length;
+    }
+
+    @Override
+    public double getWidth() {
+        return this.width;
+    }
+
+    @Override
+    public double getHeight() {
+        return this.height;
+    }
 }

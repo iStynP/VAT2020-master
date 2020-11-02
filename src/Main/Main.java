@@ -53,7 +53,7 @@ import java.util.ArrayList;
             layout.getSelectionModel().select( twoDShapes );
 
             // 6. Create the main View and add the high level layout
-            Scene scene = new Scene(layout, 600, 600);
+            Scene scene = new Scene(layout, 600, 650);
 
             window.setScene(scene);
             window.show();
@@ -61,9 +61,11 @@ import java.util.ArrayList;
             // 7. Show the application
             window.show();
 
-//            ArrayList<Shape> listFromDB = null;
-//            Database db = new Database(listFromDB);
-//            db.list();
+//            //AddUniqueID!!!!
+//            Block block = new Block( 4,5, 6 );
+//            System.out.println(block.getUniqueId());
+
+
 
 
         }

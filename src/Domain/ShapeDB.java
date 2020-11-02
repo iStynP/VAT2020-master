@@ -8,19 +8,16 @@ import java.util.List;
  */
 public class ShapeDB {
 
-    private int id;
     private String name;
     private double radius, length, width, height;
+    private List<ShapeDB> shapesFromDB;
 
-    private  List<ShapeDB> shapesFromDB;
-
-    public ShapeDB(List<ShapeDB> shapesFromDB){
+    public ShapeDB(List<ShapeDB> shapesFromDB) {
         this.shapesFromDB = shapesFromDB;
     }
 
-    public ShapeDB(int id, String name, double radius, double length, double width, double height) {
+    public ShapeDB(String name, double radius, double length, double width, double height) {
 
-        this.id = id;
         this.name = name;
         this.radius = radius;
         this.length = length;
@@ -33,13 +30,13 @@ public class ShapeDB {
 
 
     // Getters
-    public List<ShapeDB> getAll(){
+    public List<ShapeDB> getAll() {
         return shapesFromDB;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
     public String getName() {
         return name;
@@ -61,10 +58,10 @@ public class ShapeDB {
         return height;
     }
 
-    // Setters
-    public void setId() {
-        this.id = id;
-    }
+//    // Setters
+//    public void setId() {
+//        this.id = id;
+//    }
 
     public void setName() {
         this.name = name;
@@ -84,10 +81,6 @@ public class ShapeDB {
 
     public void setHeight() {
         this.height = height;
-
-    }
-
-    public void save(ShapeDB shapeDB) {
 
     }
 }

@@ -2,9 +2,7 @@ package Domain;
 
 import BusinessLogic.FileManager;
 
-import java.io.*;
 import java.text.DecimalFormat;
-import java.util.Objects;
 
 public class TwoDimensionalShape implements Shape {
     private double surface;
@@ -12,9 +10,12 @@ public class TwoDimensionalShape implements Shape {
     private String name;
     private ShapeHolder shapeHolder;
     private FileManager fileManager;
+//    private String uniqueId;
+
 
     public TwoDimensionalShape(String name) {
         this.name = name;
+//        this.uniqueId = generateUniqueId();
     }
 
     public double getSurface(){
@@ -37,6 +38,26 @@ public class TwoDimensionalShape implements Shape {
     }
 
     @Override
+    public double getRadius() {
+        return 0;
+    }
+
+    @Override
+    public double getLength() {
+        return 0;
+    }
+
+    @Override
+    public double getWidth() {
+        return 0;
+    }
+
+    @Override
+    public double getHeight() {
+        return 0;
+    }
+
+    @Override
     public void serialization(String filename) {
         // Serialization
         fileManager.serialization( filename );
@@ -49,7 +70,14 @@ public class TwoDimensionalShape implements Shape {
 
     }
 
-
+//    public String getUniqueId() {
+//        return this.uniqueId;
+//    }
+//
+//    public String generateUniqueId() {
+//        UniqueID unique = new UniqueID();
+//        return unique.getUniqueId();
+//    }
 
     public String toString() {
         String strSurface = ( new DecimalFormat("##.##").format(getSurface()) );

@@ -47,4 +47,8 @@ public class Circle extends TwoDimensionalShape {
                 super.toString();
     }
 
+    @Override
+    public double getRadius() {
+        return this.radius;
+    }
 }

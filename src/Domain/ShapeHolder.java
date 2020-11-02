@@ -33,6 +33,7 @@ public class ShapeHolder {
 
     public void deleteShape(Shape shape) {
         this.shapeList.remove(shape);
+//        this.dao.delete( shape );
     }
 
     public String print() {
@@ -122,43 +123,44 @@ public class ShapeHolder {
         return names;
     }
 
-    public void addToListFromFile(String filestring) {
-        String[] parts = filestring.split(",");
-        String shape = parts[0];
-
-        //Set rest of Strings to double
-        ArrayList<Double> props = new ArrayList<>();
-        for (int i = 0; i < parts.length - 1; i++) {
-            props.add(Double.parseDouble(parts[i + 1]));
-        }
-
-        switch (shape) {
-            case "circle":
-                Circle circle = new Circle(props.get(0));
-                this.shapeList.add(circle);
-                break;
-            case "square":
-                Square square = new Square(props.get(0), props.get(1));
-                this.shapeList.add(square);
-                break;
-            case "triangle":
-                Triangle triangle = new Triangle(props.get(0), props.get(1), props.get(2));
-                this.shapeList.add(triangle);
-                break;
-            case "sphere":
-                Sphere sphere = new Sphere(props.get(0));
-                this.shapeList.add(sphere);
-                break;
-            case "block":
-                Block block = new Block(props.get(0), props.get(1), props.get(2));
-                this.shapeList.add(block);
-                break;
-            case "cylinder":
-                Cylinder cylinder = new Cylinder(props.get(0), props.get(1));
-                this.shapeList.add(cylinder);
-                break;
-        }
-    }
+    //Add Shapes from textfile --> not in function because of serialized-functions addFromSerializedList() and replaceFromSerialized()
+//    public void addToListFromFile(String filestring) {
+//        String[] parts = filestring.split(",");
+//        String shape = parts[0];
+//
+//        //Set rest of Strings to double
+//        ArrayList<Double> props = new ArrayList<>();
+//        for (int i = 0; i < parts.length - 1; i++) {
+//            props.add(Double.parseDouble(parts[i + 1]));
+//        }
+//
+//        switch (shape) {
+//            case "circle":
+//                Circle circle = new Circle(props.get(0));
+//                this.shapeList.add(circle);
+//                break;
+//            case "square":
+//                Square square = new Square(props.get(0), props.get(1));
+//                this.shapeList.add(square);
+//                break;
+//            case "triangle":
+//                Triangle triangle = new Triangle(props.get(0), props.get(1), props.get(2));
+//                this.shapeList.add(triangle);
+//                break;
+//            case "sphere":
+//                Sphere sphere = new Sphere(props.get(0));
+//                this.shapeList.add(sphere);
+//                break;
+//            case "block":
+//                Block block = new Block(props.get(0), props.get(1), props.get(2));
+//                this.shapeList.add(block);
+//                break;
+//            case "cylinder":
+//                Cylinder cylinder = new Cylinder(props.get(0), props.get(1));
+//                this.shapeList.add(cylinder);
+//                break;
+//        }
+//    }
 
     public List<Shape> getFromDB() {
         this.shapeDBList = this.dao.getAll();
@@ -194,6 +196,7 @@ public class ShapeHolder {
         return this.shapeList;
     }
 
+    // add shapes from serialized file to Shape-list
     public void addFromSerializedList(ArrayList<Shape> shapeArrayList) {
         for (int i = 0; i < shapeArrayList.size(); i++) {
             this.shapeList.add( shapeArrayList.get( i ));
@@ -201,6 +204,7 @@ public class ShapeHolder {
         }
     }
 
+    // replace serialized Shape-list to current Shape-list
     public void replaceFromSerialized(ArrayList<Shape> shapeArrayList) {
         this.shapeList = shapeArrayList;
         }

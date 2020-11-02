@@ -44,4 +44,9 @@ public class Sphere extends ThreeDimensionalShape{
     public String toString() {
         return super.toString();
     }
+
+    @Override
+    public double getRadius() {
+        return this.radius;
+    }
 }

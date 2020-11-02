@@ -64,7 +64,7 @@ public class FileManager implements Serializable {
             String line = reader.nextLine();
             //make line into new Shape-Object
 //            System.out.println(line);
-            shapeHolder.addToListFromFile( line );
+//            shapeHolder.addToListFromFile( line );
         }
 
         reader.close();
